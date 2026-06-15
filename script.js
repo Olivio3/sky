@@ -13,7 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     icon.setAttribute('data-lucide', 'menu');
                 }
-                lucide.createIcons();
+                if (typeof lucide !== 'undefined') {
+                    lucide.createIcons();
+                }
             }
         });
     }
@@ -32,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.15
+        threshold: 0.01
     };
 
     const observer = new IntersectionObserver((entries, observer) => {

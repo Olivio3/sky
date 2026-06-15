@@ -1,0 +1,13 @@
+{
+  "name": "silt-landing-page",
+  "version": "1.0.0",
+  "description": "Landing page para a Agência Silt",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}

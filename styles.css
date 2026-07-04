@@ -1855,6 +1855,19 @@ footer {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
+    .cta-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .cta-text {
+        max-width: 100%;
+        text-align: center;
+    }
+    .cta-info-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
 }
 
 @media (max-width: 768px) {

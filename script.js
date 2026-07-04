@@ -64,41 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let targetCenterX = currentX; // Keeps track of where the target is
         let isFlipped = false;
 
-        // Initialize at the first CTA of the Hero section
-        if (targets.length > 0) {
-            const firstRect = targets[0].getBoundingClientRect();
-            targetCenterX = firstRect.left + (firstRect.width / 2);
-            targetX = firstRect.left - 50;
-            targetY = Math.max(firstRect.top - 20, 90);
-            currentX = targetX;
-            currentY = targetY;
-        }
-
-        const animateBird = () => {
-            // Lerp (smooth follow)
-            currentX += (targetX - currentX) * 0.04;
-            currentY += (targetY - currentY) * 0.04;
-            
-            // Movement direction for tilting
-            const dx = targetX - currentX;
-            const tilt = dx * 0.05; 
-            
-            // Always face the target center (look at the button)
-            if (currentX < targetCenterX - 10) isFlipped = false; // Look right
-            else if (currentX > targetCenterX + 10) isFlipped = true; // Look left
-
-            const scaleX = isFlipped ? -1 : 1;
-            
-            // Apply transform
-            bird.style.transform = `translate(${currentX}px, ${currentY}px) rotate(${tilt}deg) scaleX(${scaleX})`;
-            
-            requestAnimationFrame(animateBird);
-        };
-        
-        // Start animation loop
-        requestAnimationFrame(animateBird);
-
-        window.addEventListener('scroll', () => {
+        const updateBirdTarget = () => {
             const viewportCenter = window.innerHeight / 2;
             let closestTarget = null;
             let minDistance = Infinity;
@@ -138,11 +104,55 @@ document.addEventListener('DOMContentLoaded', () => {
                 targetY = viewportCenter;
             }
 
-            // Constrain so it never flies into the navbar (top 90px)
-            if (targetY < 90) {
-                targetY = 90;
-            }
-        });
+            // Ensure the bird stays within the visible viewport bounds
+            const padding = 15; // 15px safety margin from the screen edges
+            const birdWidth = 80;
+            const birdHeight = 80; // approximate height for safety
+            
+            const minX = padding;
+            const maxX = window.innerWidth - birdWidth - padding;
+            const minY = 90; // Don't fly into navbar (top 90px)
+            const maxY = window.innerHeight - birdHeight - padding;
+            
+            // Safeguard for very small screens or layout variations
+            const safeMaxX = Math.max(minX, maxX);
+            const safeMaxY = Math.max(minY, maxY);
+
+            targetX = Math.max(minX, Math.min(targetX, safeMaxX));
+            targetY = Math.max(minY, Math.min(targetY, safeMaxY));
+        };
+
+        // Initialize position
+        updateBirdTarget();
+        currentX = targetX;
+        currentY = targetY;
+
+        const animateBird = () => {
+            // Lerp (smooth follow)
+            currentX += (targetX - currentX) * 0.04;
+            currentY += (targetY - currentY) * 0.04;
+            
+            // Movement direction for tilting
+            const dx = targetX - currentX;
+            const tilt = dx * 0.05; 
+            
+            // Always face the target center (look at the button)
+            if (currentX < targetCenterX - 10) isFlipped = false; // Look right
+            else if (currentX > targetCenterX + 10) isFlipped = true; // Look left
+
+            const scaleX = isFlipped ? -1 : 1;
+            
+            // Apply transform
+            bird.style.transform = `translate(${currentX}px, ${currentY}px) rotate(${tilt}deg) scaleX(${scaleX})`;
+            
+            requestAnimationFrame(animateBird);
+        };
+        
+        // Start animation loop
+        requestAnimationFrame(animateBird);
+
+        window.addEventListener('scroll', updateBirdTarget);
+        window.addEventListener('resize', updateBirdTarget);
     }
 
     // Lógica do Formulário de Briefing Passo a Passo

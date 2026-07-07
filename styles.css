@@ -313,9 +313,9 @@ header.scrolled .logo img {
     position: relative;
     padding-top: 140px;
     padding-bottom: 80px;
-    background: 
+    background:
         linear-gradient(135deg, rgba(26, 49, 37, 0.93) 0%, rgba(15, 16, 15, 0.97) 100%),
-        url('/luxury_landscape.png');
+        url('/flor_laranja.jpg');
     background-size: cover;
     background-position: center;
     background-blend-mode: multiply;
@@ -325,18 +325,24 @@ header.scrolled .logo img {
 
 /* Creative Background Patterns & Animations */
 @keyframes floatGlow1 {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translate(0, 0) scale(1);
     }
+
     50% {
         transform: translate(-30px, 20px) scale(1.1);
     }
 }
 
 @keyframes floatGlow2 {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translate(0, 0) scale(1);
     }
+
     50% {
         transform: translate(30px, -20px) scale(1.08);
     }
@@ -395,14 +401,14 @@ header.scrolled .logo img {
     letter-spacing: 0.03em;
     font-weight: 800;
     margin-bottom: 0.25rem;
-    
+
     /* Degradê premium nas cores da Silt */
     background: linear-gradient(135deg, var(--color-primary) 30%, #FFB072 100%);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
-    
+
     /* Filtro de sombra sutil */
     filter: drop-shadow(0px 2px 10px rgba(0, 0, 0, 0.2));
 }
@@ -1176,7 +1182,8 @@ footer {
 
 .footer-logo img {
     height: 35px;
-    filter: none; /* Show original brand logo colors */
+    filter: none;
+    /* Show original brand logo colors */
     margin-bottom: 0.75rem;
 }
 
@@ -1265,12 +1272,21 @@ footer {
     background-image: none !important;
     color: var(--color-dark) !important;
 }
-.bg-light h1, .bg-light h2, .bg-light h3, .bg-light h4, .bg-light h5, .bg-light h6, .bg-light .section-title {
+
+.bg-light h1,
+.bg-light h2,
+.bg-light h3,
+.bg-light h4,
+.bg-light h5,
+.bg-light h6,
+.bg-light .section-title {
     color: var(--color-dark) !important;
 }
+
 .bg-light p {
     color: var(--color-gray) !important;
 }
+
 .bg-light .section-subtitle {
     color: var(--color-primary) !important;
 }
@@ -1280,12 +1296,21 @@ footer {
     background-image: linear-gradient(135deg, #162C20 0%, #0C1510 100%) !important;
     color: var(--color-light) !important;
 }
-.bg-green h1, .bg-green h2, .bg-green h3, .bg-green h4, .bg-green h5, .bg-green h6, .bg-green .section-title {
+
+.bg-green h1,
+.bg-green h2,
+.bg-green h3,
+.bg-green h4,
+.bg-green h5,
+.bg-green h6,
+.bg-green .section-title {
     color: var(--color-light) !important;
 }
+
 .bg-green p {
     color: rgba(245, 240, 232, 0.75) !important;
 }
+
 .bg-green .section-subtitle {
     color: var(--color-primary) !important;
 }
@@ -1296,12 +1321,21 @@ footer {
     background-image: none !important;
     color: var(--color-light) !important;
 }
-.bg-brown h1, .bg-brown h2, .bg-brown h3, .bg-brown h4, .bg-brown h5, .bg-brown h6, .bg-brown .section-title {
+
+.bg-brown h1,
+.bg-brown h2,
+.bg-brown h3,
+.bg-brown h4,
+.bg-brown h5,
+.bg-brown h6,
+.bg-brown .section-title {
     color: var(--color-light) !important;
 }
+
 .bg-brown p {
     color: rgba(245, 240, 232, 0.75) !important;
 }
+
 .bg-brown .section-subtitle {
     color: var(--color-primary) !important;
 }
@@ -1311,13 +1345,16 @@ footer {
     background-color: rgba(26, 26, 24, 0.03) !important;
     border-color: rgba(26, 26, 24, 0.08) !important;
 }
+
 .bg-light .problem-card:hover {
     background-color: rgba(232, 80, 10, 0.05) !important;
     border-color: rgba(232, 80, 10, 0.2) !important;
 }
+
 .bg-light .problem-card span {
     color: var(--color-dark) !important;
 }
+
 .bg-light .problem-list-title {
     color: var(--color-dark) !important;
 }
@@ -1326,12 +1363,15 @@ footer {
     background-color: rgba(26, 26, 24, 0.03) !important;
     border-color: rgba(26, 26, 24, 0.08) !important;
 }
+
 .bg-light .service-item:hover {
     border-color: var(--color-primary) !important;
 }
+
 .bg-light .service-item h3 {
     color: var(--color-dark) !important;
 }
+
 .bg-light .service-item p {
     color: var(--color-gray) !important;
 }
@@ -1340,16 +1380,20 @@ footer {
     background-color: rgba(26, 26, 24, 0.03) !important;
     border-color: rgba(26, 26, 24, 0.08) !important;
 }
+
 .bg-light .faq-item:hover {
     background-color: rgba(26, 26, 24, 0.05) !important;
     border-color: rgba(232, 80, 10, 0.2) !important;
 }
+
 .bg-light .faq-question {
     color: var(--color-dark) !important;
 }
+
 .bg-light .faq-answer p {
     color: var(--color-gray) !important;
 }
+
 .bg-light .faq-item.active {
     background-color: rgba(232, 80, 10, 0.03) !important;
     border-color: var(--color-primary) !important;
@@ -1360,16 +1404,20 @@ footer {
     background-color: rgba(245, 240, 232, 0.03) !important;
     border-color: rgba(245, 240, 232, 0.08) !important;
 }
+
 .bg-green .niche-card:hover {
     background-color: rgba(245, 240, 232, 0.06) !important;
     border-color: var(--color-primary) !important;
 }
+
 .bg-green .niche-card h3 {
     color: var(--color-light) !important;
 }
+
 .bg-green .niche-card p {
     color: rgba(245, 240, 232, 0.85) !important;
 }
+
 .bg-green .benefits-list li {
     color: var(--color-light) !important;
 }
@@ -1379,15 +1427,19 @@ footer {
     background-color: rgba(26, 26, 24, 0.03) !important;
     border-color: rgba(26, 26, 24, 0.08) !important;
 }
+
 .bg-light .process-step:hover {
     border-color: var(--color-primary) !important;
 }
+
 .bg-light .step-content h3 {
     color: var(--color-dark) !important;
 }
+
 .bg-light .step-content p {
     color: var(--color-gray) !important;
 }
+
 .bg-light .step-number {
     color: rgba(232, 80, 10, 0.08) !important;
 }
@@ -1396,19 +1448,52 @@ footer {
     background-color: rgba(26, 26, 24, 0.03) !important;
     border-color: rgba(26, 26, 24, 0.08) !important;
 }
+
 .bg-light .comparison-card.traditional {
     opacity: 0.7 !important;
 }
+
 .bg-light .comparison-card.silt-agency {
     border-color: rgba(232, 80, 10, 0.25) !important;
     background-color: rgba(232, 80, 10, 0.02) !important;
 }
+
 .bg-light .comparison-card h3 {
     color: var(--color-dark) !important;
 }
+
 .bg-light .comparison-list li {
     color: var(--color-dark) !important;
 }
+
+/* Specific Section Adjustments for Light Backgrounds (Results Section) */
+.bg-light .benefits-list li {
+    color: var(--color-dark) !important;
+}
+
+.bg-light .cases-placeholder {
+    background-color: rgba(26, 49, 37, 0.03) !important;
+    border-color: rgba(26, 49, 37, 0.08) !important;
+}
+
+.bg-light .testimonials-mini-grid .testimonial-card {
+    background-color: var(--color-white) !important;
+    border-color: rgba(26, 49, 37, 0.08) !important;
+    box-shadow: 0 10px 20px rgba(26, 26, 24, 0.04) !important;
+}
+
+.bg-light .testimonials-mini-grid .testimonial-card p {
+    color: var(--color-gray) !important;
+}
+
+.bg-light .testimonials-mini-grid .testimonial-author {
+    color: var(--color-dark) !important;
+}
+
+.bg-light .testimonials-mini-grid .testimonial-author span {
+    color: var(--color-gray) !important;
+}
+
 
 /* Sticky CTA floating widget */
 .sticky-cta {
@@ -1451,18 +1536,21 @@ footer {
     max-width: 700px;
     margin-bottom: 2.5rem;
 }
+
 .hero-support-text {
     font-size: 0.95rem;
     color: var(--color-beige);
     margin-top: 2rem;
     opacity: 0.8;
 }
+
 .btn-whatsapp {
     display: flex;
     align-items: center;
     gap: 0.5rem;
     border-color: rgba(255, 255, 255, 0.4);
 }
+
 .btn-whatsapp:hover {
     background-color: #25d366 !important;
     border-color: #25d366 !important;
@@ -1475,33 +1563,39 @@ footer {
     padding: 100px 0;
     position: relative;
 }
+
 .problem-grid {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
     gap: 4rem;
     align-items: flex-start;
 }
+
 .problem-intro h2 {
     font-size: 3rem;
     margin-bottom: 2rem;
     line-height: 1.2;
 }
+
 .problem-text {
     font-size: 1.15rem;
     color: var(--color-beige);
     line-height: 1.7;
 }
+
 .problem-list-title {
     font-size: 1.25rem;
     font-weight: 600;
     margin-bottom: 2rem;
     color: var(--color-light);
 }
+
 .problem-cards {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
 }
+
 .problem-card {
     background-color: rgba(245, 240, 232, 0.03);
     border: 1px solid rgba(245, 240, 232, 0.08);
@@ -1512,17 +1606,20 @@ footer {
     gap: 1rem;
     transition: var(--transition-normal);
 }
+
 .problem-card:hover {
     transform: translateY(-5px);
     background-color: rgba(232, 80, 10, 0.05);
     border-color: rgba(232, 80, 10, 0.2);
 }
+
 .problem-icon {
     color: var(--color-primary);
     flex-shrink: 0;
     width: 24px;
     height: 24px;
 }
+
 .problem-card span {
     font-size: 1rem;
     color: var(--color-light);
@@ -1531,10 +1628,12 @@ footer {
 
 /* Dobra 4 - Metodologia/Processo */
 .process {
-    background-color: #15221b; /* Deep forest green */
+    background-color: #15221b;
+    /* Deep forest green */
     padding: 100px 0;
     position: relative;
 }
+
 .process-steps {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -1542,6 +1641,7 @@ footer {
     margin-top: 5rem;
     position: relative;
 }
+
 .process-step {
     background-color: rgba(245, 240, 232, 0.02);
     border: 1px solid rgba(245, 240, 232, 0.06);
@@ -1550,11 +1650,13 @@ footer {
     position: relative;
     transition: var(--transition-normal);
 }
+
 .process-step:hover {
     transform: translateY(-8px);
     background-color: rgba(245, 240, 232, 0.05);
     border-color: var(--color-primary);
 }
+
 .step-number {
     position: absolute;
     top: -2.5rem;
@@ -1566,15 +1668,18 @@ footer {
     line-height: 1;
     transition: var(--transition-fast);
 }
+
 .process-step:hover .step-number {
     color: var(--color-primary);
     transform: translateY(-5px);
 }
+
 .step-content h3 {
     font-size: 1.8rem;
     margin-bottom: 1rem;
     color: var(--color-light);
 }
+
 .step-content p {
     color: rgba(245, 240, 232, 0.8);
     font-size: 1rem;
@@ -1594,12 +1699,14 @@ footer {
     background-color: var(--color-dark);
     padding: 100px 0;
 }
+
 .comparison-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 3rem;
     margin-top: 4rem;
 }
+
 .comparison-card {
     background-color: rgba(245, 240, 232, 0.02);
     border: 1px solid rgba(245, 240, 232, 0.05);
@@ -1608,21 +1715,26 @@ footer {
     position: relative;
     transition: var(--transition-normal);
 }
+
 .comparison-card.traditional {
     opacity: 0.7;
 }
+
 .comparison-card.traditional:hover {
     opacity: 0.9;
 }
+
 .comparison-card.silt-agency {
     border-color: rgba(232, 80, 10, 0.3);
     background-color: rgba(232, 80, 10, 0.02);
     box-shadow: 0 10px 30px rgba(232, 80, 10, 0.05);
 }
+
 .comparison-card.silt-agency:hover {
     border-color: var(--color-primary);
     background-color: rgba(232, 80, 10, 0.04);
 }
+
 .card-badge {
     position: absolute;
     top: 1.5rem;
@@ -1636,17 +1748,20 @@ footer {
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
+
 .comparison-card h3 {
     font-size: 2rem;
     margin-bottom: 2rem;
     color: var(--color-light);
 }
+
 .comparison-list {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
+
 .comparison-list li {
     display: flex;
     align-items: flex-start;
@@ -1654,12 +1769,14 @@ footer {
     font-size: 1.1rem;
     line-height: 1.4;
 }
+
 .list-icon-negative {
     color: #ff4a4a;
     flex-shrink: 0;
     width: 22px;
     height: 22px;
 }
+
 .list-icon-positive {
     color: #25d366;
     flex-shrink: 0;
@@ -1669,9 +1786,11 @@ footer {
 
 /* Dobra 7 - Resultados */
 .results {
-    background-color: #121c17; /* Very deep green */
+    background-color: #121c17;
+    /* Very deep green */
     padding: 100px 0;
 }
+
 .results-layout {
     display: grid;
     grid-template-columns: 1fr 1.2fr;
@@ -1679,12 +1798,14 @@ footer {
     margin-top: 4rem;
     align-items: center;
 }
+
 .benefits-list {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
+
 .benefits-list li {
     font-family: var(--font-heading);
     font-size: 2.2rem;
@@ -1693,11 +1814,13 @@ footer {
     align-items: center;
     gap: 1.5rem;
 }
+
 .benefits-list li i {
     color: var(--color-primary);
     width: 32px;
     height: 32px;
 }
+
 .cases-placeholder {
     background-color: rgba(245, 240, 232, 0.02);
     border: 1px solid rgba(245, 240, 232, 0.05);
@@ -1705,6 +1828,7 @@ footer {
     padding: 3rem 2rem;
     position: relative;
 }
+
 .badge-placeholder {
     position: absolute;
     top: -1rem;
@@ -1718,11 +1842,13 @@ footer {
     border-radius: 50px;
     letter-spacing: 0.05em;
 }
+
 .testimonials-mini-grid {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
 }
+
 .testimonials-mini-grid .testimonial-card {
     background-color: rgba(245, 240, 232, 0.02);
     border: 1px solid rgba(245, 240, 232, 0.05);
@@ -1730,12 +1856,14 @@ footer {
     padding: 1.8rem;
     margin-bottom: 0;
 }
+
 .testimonials-mini-grid .testimonial-card p {
     font-size: 0.95rem;
     font-style: italic;
     color: rgba(245, 240, 232, 0.85);
     margin-bottom: 1rem;
 }
+
 .testimonials-mini-grid .testimonial-author {
     font-size: 0.85rem;
     color: var(--color-beige);
@@ -1746,6 +1874,7 @@ footer {
     background-color: var(--color-dark);
     padding: 100px 0;
 }
+
 .faq-accordion {
     max-width: 800px;
     margin: 4rem auto 0 auto;
@@ -1753,6 +1882,7 @@ footer {
     flex-direction: column;
     gap: 1.5rem;
 }
+
 .faq-item {
     background-color: rgba(245, 240, 232, 0.02);
     border: 1px solid rgba(245, 240, 232, 0.06);
@@ -1760,10 +1890,12 @@ footer {
     overflow: hidden;
     transition: var(--transition-normal);
 }
+
 .faq-item:hover {
     background-color: rgba(245, 240, 232, 0.04);
     border-color: rgba(232, 80, 10, 0.2);
 }
+
 .faq-question {
     width: 100%;
     background: none;
@@ -1779,17 +1911,20 @@ footer {
     color: var(--color-light);
     outline: none;
 }
+
 .faq-icon {
     color: var(--color-primary);
     transition: transform var(--transition-normal);
     flex-shrink: 0;
 }
+
 .faq-answer {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s ease;
     padding: 0 2rem;
 }
+
 .faq-answer p {
     color: rgba(245, 240, 232, 0.8);
     font-size: 1.05rem;
@@ -1802,11 +1937,14 @@ footer {
     border-color: var(--color-primary);
     background-color: rgba(232, 80, 10, 0.02);
 }
+
 .faq-item.active .faq-icon {
     transform: rotate(180deg);
 }
+
 .faq-item.active .faq-answer {
-    max-height: 300px; /* enough space for answer */
+    max-height: 300px;
+    /* enough space for answer */
 }
 
 /* Responsive */
@@ -1840,29 +1978,36 @@ footer {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+
     .process-steps {
         grid-template-columns: 1fr;
         gap: 4rem;
     }
+
     .services-4-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .comparison-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+
     .results-layout {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
+
     .cta-grid {
         grid-template-columns: 1fr;
         gap: 3rem;
     }
+
     .cta-text {
         max-width: 100%;
         text-align: center;
     }
+
     .cta-info-list {
         display: flex;
         flex-direction: column;
@@ -1916,16 +2061,20 @@ footer {
     .services-4-grid {
         grid-template-columns: 1fr;
     }
+
     .problem-cards {
         grid-template-columns: 1fr;
     }
+
     .faq-question {
         font-size: 1.3rem;
         padding: 1.5rem;
     }
+
     .faq-answer {
         padding: 0 1.5rem;
     }
+
     .faq-answer p {
         padding-bottom: 1.5rem;
     }
@@ -1937,11 +2086,11 @@ footer {
         left: 20px;
         transform: translateY(30px);
     }
-    
+
     .sticky-cta.visible {
         transform: translateY(0);
     }
-    
+
     .sticky-cta .btn {
         width: 100%;
         text-align: center;

@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else {
                 // Fallback
                 targetCenterX = window.innerWidth / 2;
-                targetX = window.innerWidth - 100;
+                targetX = 80; // Rest on the left side of the screen
                 targetY = viewportCenter;
             }
 
@@ -118,7 +118,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const safeMaxX = Math.max(minX, maxX);
             const safeMaxY = Math.max(minY, maxY);
 
-            targetX = Math.max(minX, Math.min(targetX, safeMaxX));
+            if (!bird.classList.contains('visible')) {
+                targetX = -120; // Posiciona fora da tela à esquerda
+            } else {
+                targetX = Math.max(minX, Math.min(targetX, safeMaxX));
+            }
             targetY = Math.max(minY, Math.min(targetY, safeMaxY));
         };
 
@@ -129,8 +133,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const animateBird = () => {
             // Lerp (smooth follow)
-            currentX += (targetX - currentX) * 0.04;
-            currentY += (targetY - currentY) * 0.04;
+            currentX += (targetX - currentX) * 0.025;
+            currentY += (targetY - currentY) * 0.025;
             
             // Movement direction for tilting
             const dx = targetX - currentX;
@@ -213,18 +217,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
 
-    // Sticky CTA show/hide on scroll
+    // Sticky CTA and Hummingbird show/hide on scroll
     const stickyCta = document.getElementById('sticky-cta');
     const heroSection = document.querySelector('.hero');
     
-    if (stickyCta && heroSection) {
-        window.addEventListener('scroll', () => {
+    if (heroSection) {
+        const updateVisibility = () => {
             const heroHeight = heroSection.offsetHeight;
             if (window.scrollY > heroHeight * 0.8) {
-                stickyCta.classList.add('visible');
+                if (stickyCta) stickyCta.classList.add('visible');
+                if (bird) bird.classList.add('visible');
             } else {
-                stickyCta.classList.remove('visible');
+                if (stickyCta) stickyCta.classList.remove('visible');
+                if (bird) bird.classList.remove('visible');
             }
-        });
+        };
+        window.addEventListener('scroll', updateVisibility);
+        updateVisibility(); // Run on initial load
     }
 });

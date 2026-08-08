@@ -54,95 +54,35 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hummingbird Smart Animation
     const bird = document.getElementById('flying-bird');
     if (bird) {
-        // Only target buttons inside sections, and the cards (excludes navbar and footer links)
-        const targets = Array.from(document.querySelectorAll('section .btn, .niche-card, .service-item'));
-        
         let currentX = window.innerWidth / 2;
         let currentY = window.innerHeight / 2;
         let targetX = currentX;
         let targetY = currentY;
-        let targetCenterX = currentX; // Keeps track of where the target is
         let isFlipped = false;
 
-        const updateBirdTarget = () => {
-            const viewportCenter = window.innerHeight / 2;
-            let closestTarget = null;
-            let minDistance = Infinity;
-            
-            // Find which interactive element is closest to the center of the screen
-            targets.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                
-                // Only consider elements currently visible in the viewport
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    const elCenter = rect.top + (rect.height / 2);
-                    const distance = Math.abs(elCenter - viewportCenter);
-                    
-                    if (distance < minDistance) {
-                        minDistance = distance;
-                        closestTarget = rect;
-                    }
-                }
-            });
-
-            if (closestTarget) {
-                targetCenterX = closestTarget.left + (closestTarget.width / 2);
-                
-                // Fly to the top-left of the closest interactive element
-                targetX = closestTarget.left - 50; 
-                
-                // If it goes offscreen to the left, fly to the top-right instead
-                if (targetX < 20) {
-                    targetX = closestTarget.right + 10;
-                }
-                
-                targetY = closestTarget.top - 20;
-            } else {
-                // Fallback
-                targetCenterX = window.innerWidth / 2;
-                targetX = 80; // Rest on the left side of the screen
-                targetY = viewportCenter;
-            }
-
-            // Ensure the bird stays within the visible viewport bounds
-            const padding = 15; // 15px safety margin from the screen edges
-            const birdWidth = 80;
-            const birdHeight = 80; // approximate height for safety
-            
-            const minX = padding;
-            const maxX = window.innerWidth - birdWidth - padding;
-            const minY = 90; // Don't fly into navbar (top 90px)
-            const maxY = window.innerHeight - birdHeight - padding;
-            
-            // Safeguard for very small screens or layout variations
-            const safeMaxX = Math.max(minX, maxX);
-            const safeMaxY = Math.max(minY, maxY);
-
-            if (!bird.classList.contains('visible')) {
-                targetX = -120; // Posiciona fora da tela à esquerda
-            } else {
-                targetX = Math.max(minX, Math.min(targetX, safeMaxX));
-            }
-            targetY = Math.max(minY, Math.min(targetY, safeMaxY));
-        };
-
-        // Initialize position
-        updateBirdTarget();
-        currentX = targetX;
-        currentY = targetY;
+        window.addEventListener('mousemove', (e) => {
+            targetX = e.clientX + 15; // Offset from cursor
+            targetY = e.clientY + 15;
+        });
 
         const animateBird = () => {
+            if (!bird.classList.contains('visible')) {
+                // Fly offscreen if not visible
+                targetX = -120; 
+                targetY = window.innerHeight / 2;
+            }
+
             // Lerp (smooth follow)
-            currentX += (targetX - currentX) * 0.025;
-            currentY += (targetY - currentY) * 0.025;
+            currentX += (targetX - currentX) * 0.05;
+            currentY += (targetY - currentY) * 0.05;
             
             // Movement direction for tilting
             const dx = targetX - currentX;
-            const tilt = dx * 0.05; 
+            const tilt = dx * 0.1; 
             
-            // Always face the target center (look at the button)
-            if (currentX < targetCenterX - 10) isFlipped = false; // Look right
-            else if (currentX > targetCenterX + 10) isFlipped = true; // Look left
+            // Determine facing direction
+            if (dx > 2) isFlipped = false; // Look right
+            else if (dx < -2) isFlipped = true; // Look left
 
             const scaleX = isFlipped ? -1 : 1;
             
@@ -154,9 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Start animation loop
         requestAnimationFrame(animateBird);
-
-        window.addEventListener('scroll', updateBirdTarget);
-        window.addEventListener('resize', updateBirdTarget);
     }
 
     // Lógica do Formulário de Briefing Passo a Passo

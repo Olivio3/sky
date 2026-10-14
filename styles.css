@@ -1521,3 +1521,15 @@ footer { background:var(--black); padding-bottom:35px; }
 .crescent-moon { background-image:url('/sky/moon-crescent.svg'); }
 .full-moon { background-image:url('/sky/moon-full.svg'); filter:drop-shadow(0 0 15px #ffde2133); }
 .waning-moon { background-image:url('/sky/moon-waning.svg'); }
+
+.service-card>a {
+  display:grid;
+  place-items:center;
+  gap:0;
+  line-height:0;
+}
+.service-card>a svg {
+  display:block;
+  width:22px;
+  height:22px;
+}

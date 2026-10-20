@@ -61,3 +61,46 @@ if (sitesShowcase) {
       : 'Pausar movimento <span aria-hidden="true">Ⅱ</span>';
   });
 }
+
+document.querySelectorAll('.ambiental-carousel').forEach(carousel => {
+  const slides = carousel.querySelector('.ambiental-slides');
+  const count = slides.children.length;
+  const counter = carousel.querySelector('.ambiental-slide-count');
+  carousel.querySelectorAll('[data-slide-direction]').forEach(button => {
+    button.addEventListener('click', () => {
+      const current = Math.round(slides.scrollLeft / slides.clientWidth);
+      const next = (current + Number(button.dataset.slideDirection) + count) % count;
+      slides.scrollTo({ left: next * slides.clientWidth, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+    });
+  });
+  slides.addEventListener('scroll', () => { counter.textContent = `${Math.round(slides.scrollLeft / slides.clientWidth) + 1} / ${count}`; }, { passive: true });
+});
+document.querySelectorAll('.content-gallery video').forEach(video => {
+  video.addEventListener('play', () => {
+    document.querySelectorAll('.content-gallery video').forEach(other => { if (other !== video) other.pause(); });
+  });
+});
+
+const contentGallery = document.querySelector('.content-gallery');
+if (contentGallery) {
+  const arrows = [...document.querySelectorAll('[data-content-direction]')];
+  const updateContentArrows = () => {
+    arrows[0].disabled = contentGallery.scrollLeft < 2;
+    arrows[1].disabled = contentGallery.scrollLeft >= contentGallery.scrollWidth - contentGallery.clientWidth - 2;
+  };
+  arrows.forEach(button => button.addEventListener('click', () => {
+    const card = [...contentGallery.children].find(item => !item.hidden);
+    const distance = card.getBoundingClientRect().width + parseFloat(getComputedStyle(contentGallery).gap);
+    contentGallery.scrollBy({ left: Number(button.dataset.contentDirection) * distance, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
+  }));
+  document.querySelectorAll('[data-client-filter]').forEach(button => button.addEventListener('click', () => {
+    document.querySelectorAll('[data-client-filter]').forEach(filter => filter.setAttribute('aria-pressed', String(filter === button)));
+    contentGallery.querySelectorAll('video').forEach(video => video.pause());
+    [...contentGallery.children].forEach(card => { card.hidden = button.dataset.clientFilter !== 'all' && card.dataset.client !== button.dataset.clientFilter; });
+    contentGallery.scrollTo({ left: 0, behavior: 'instant' });
+    updateContentArrows();
+  }));
+  contentGallery.addEventListener('scroll', updateContentArrows, { passive: true });
+  new ResizeObserver(updateContentArrows).observe(contentGallery);
+  updateContentArrows();
+}

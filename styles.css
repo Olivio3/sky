@@ -1790,3 +1790,34 @@ main > section { position:relative; z-index:1; }
 @media(prefers-reduced-motion:reduce) {
   .shooting-stars { display:none; }
 }
+
+/* Full-width, continuous portfolio ribbon. */
+.website-showcase { color:var(--cream); overflow:hidden; }
+.website-showcase .heading-row { align-items:end; }
+.sites-intro { display:grid; gap:18px; justify-items:start; }
+.sites-intro p { color:#b7bdd0; font-size:15px; }
+.sites-pause { display:flex; align-items:center; gap:18px; color:var(--cream); background:#ffffff08; border:1px solid #ffffff26; border-radius:30px; padding:10px 16px; font-size:12px; }
+.sites-pause:hover { border-color:var(--yellow); }
+.sites-marquee { --project-gap:20px; overflow:hidden; padding:12px 0 20px; }
+.sites-track { display:flex; width:max-content; animation:sites-drift 100s linear infinite; will-change:transform; }
+.sites-group { display:flex; flex-shrink:0; gap:var(--project-gap); padding-right:var(--project-gap); }
+.site-project { width:clamp(260px,34vw,480px); flex-shrink:0; }
+.site-project img { width:100%; height:auto; aspect-ratio:16 / 9.5; object-fit:contain; background:#080c11; border:1px solid #ffffff24; border-radius:18px; }
+.site-project figcaption { display:flex; align-items:center; justify-content:space-between; gap:20px; padding:10px 5px 0; font-size:12px; color:#d7d9e4; }
+.site-project figcaption span:last-child { color:var(--yellow); font-size:21px; }
+.sites-marquee:hover .sites-track,.sites-marquee:focus-within .sites-track,.website-showcase.is-paused .sites-track { animation-play-state:paused; }
+@keyframes sites-drift { to { transform:translateX(-50%); } }
+@media(max-width:700px) {
+  .sites-marquee { --project-gap:16px; }
+  .site-project { width:72vw; max-width:340px; }
+  .site-project img { border-radius:12px; }
+  .site-project figcaption { font-size:11px; }
+  .sites-intro { margin-top:22px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .sites-track { animation:none; transform:none; will-change:auto; }
+  .sites-marquee { overflow-x:auto; scroll-snap-type:x mandatory; }
+  .site-project { scroll-snap-align:center; }
+  .sites-group[aria-hidden] { display:none; }
+  .sites-pause { display:none; }
+}

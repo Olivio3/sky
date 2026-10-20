@@ -43,3 +43,21 @@ function updateHeader() {
 }
 window.addEventListener('scroll', updateHeader, { passive: true });
 updateHeader();
+
+const sitesShowcase = document.querySelector('.website-showcase');
+if (sitesShowcase) {
+  const group = sitesShowcase.querySelector('.sites-group');
+  const duplicate = group.cloneNode(true);
+  duplicate.setAttribute('aria-hidden', 'true');
+  duplicate.setAttribute('inert', '');
+  duplicate.querySelectorAll('img').forEach(image => { image.alt = ''; });
+  sitesShowcase.querySelector('.sites-track').append(duplicate);
+  const pauseButton = sitesShowcase.querySelector('.sites-pause');
+  pauseButton.addEventListener('click', () => {
+    const paused = sitesShowcase.classList.toggle('is-paused');
+    pauseButton.setAttribute('aria-pressed', String(paused));
+    pauseButton.innerHTML = paused
+      ? 'Retomar movimento <span aria-hidden="true">▶</span>'
+      : 'Pausar movimento <span aria-hidden="true">Ⅱ</span>';
+  });
+}

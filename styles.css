@@ -1486,7 +1486,9 @@ footer { background:var(--black); padding-bottom:35px; }
 
 .hero-background img.hero-studio {
   inset:0;
-  width:100%;
+  left:-10%;
+  width:110%;
+  max-width:none;
   height:100%;
   object-fit:cover;
   object-position:center;
@@ -1548,8 +1550,8 @@ footer { background:var(--black); padding-bottom:35px; }
 .process-milestones:before { content:''; position:absolute; top:118px; height:10px; left:0; right:0; border-radius:20px; background:linear-gradient(90deg,#ffde21,#ad9eb8 35%,#605bff 65%,#273bcc); box-shadow:0 0 30px #5260ff15; }
 .milestone { position:relative; counter-increment:steps; padding-right:12px; }
 .milestone:before { content:'0' counter(steps); display:block; color:#a0a3b8; font-size:11px; letter-spacing:2px; margin-bottom:12px; }
-.milestone span { display:block; font-size:clamp(12px,1.1vw,16px); line-height:1.4; font-weight:600; }
-.milestone span br { display:none; }
+.milestone span { display:block; font-size:clamp(12px,1vw,14px); line-height:1.4; font-weight:600; overflow-wrap:anywhere; }
+.milestone span br { display:initial; }
 .milestone i { position:absolute; top:72px; left:0; width:13px; height:13px; border:3px solid #08090e; border-radius:50%; background:var(--cream); box-shadow:0 0 0 1px #ffffff60; }
 .process-analysis { grid-column:1; grid-row:2; border:1px solid #ffffff18; border-radius:16px; padding:26px 30px; background:#ffffff03; display:flex; align-items:center; min-height:92px; }
 .process-analysis h2 { font-family:var(--body); font-size:clamp(20px,2vw,28px); font-weight:600; letter-spacing:-.6px; line-height:1.2; }
@@ -1569,6 +1571,16 @@ footer { background:var(--black); padding-bottom:35px; }
   .process-analysis { grid-row:2; }
   .process-output { grid-column:1; grid-row:3; }
   .process-output ul { grid-template-columns:repeat(4,1fr); }
+}
+@media(max-width:1200px) {
+  .process-milestones { display:block; padding:0 0 0 35px; min-height:0; }
+  .process-milestones:before { top:8px; bottom:15px; height:auto; left:6px; right:auto; width:5px; background:linear-gradient(#ffde21,#ad9eb8 35%,#605bff 65%,#273bcc); }
+  .milestone { display:grid; grid-template-columns:27px minmax(0,1fr); align-items:baseline; padding:0 0 28px; }
+  .milestone:last-child { padding-bottom:0; }
+  .milestone:before { margin:0; font-size:10px; }
+  .milestone span { font-size:15px; }
+  .milestone span br { display:none; }
+  .milestone i { top:6px; left:-33px; }
 }
 @media(max-width:600px) {
   .process-reference { padding:65px 0; }
@@ -1701,6 +1713,7 @@ body {
 
 /* Fade the hero's photographic sky into the page's star field. */
 .hero-background {
+  background:#020309;
   -webkit-mask-image:linear-gradient(#000 80%,transparent);
   mask-image:linear-gradient(#000 80%,transparent);
 }
@@ -1735,4 +1748,45 @@ body {
   height:64px;
   margin-bottom:24px;
   filter:none;
+}
+
+/* Textured lunar discs with restrained lighting. */
+.plan-card .moon { width:82px; height:82px; filter:drop-shadow(0 4px 12px #0006); }
+.plan-card.featured .moon { filter:drop-shadow(0 0 16px #ebc77935); }
+
+/* Occasional meteors behind the content throughout the page. */
+main { position:relative; isolation:isolate; }
+main > section { position:relative; z-index:1; }
+.shooting-stars { position:absolute; inset:0; overflow:hidden; pointer-events:none; z-index:0; }
+.shooting-stars i {
+  position:absolute;
+  top:var(--star-top);
+  left:var(--star-left);
+  width:150px;
+  height:1px;
+  border-radius:50%;
+  background:linear-gradient(90deg,transparent,#fff0c780,#fff7e4);
+  filter:drop-shadow(0 0 3px #ffe2a955);
+  opacity:0;
+  transform:rotate(32deg);
+  animation:shooting-star var(--star-cycle,14s) var(--star-delay,0s) linear infinite;
+}
+.shooting-stars i:nth-child(1) { --star-top:16%; --star-left:62%; --star-delay:1s; --star-cycle:13s; }
+.shooting-stars i:nth-child(2) { --star-top:29%; --star-left:12%; --star-delay:6s; --star-cycle:17s; }
+.shooting-stars i:nth-child(3) { --star-top:41%; --star-left:68%; --star-delay:3s; --star-cycle:15s; }
+.shooting-stars i:nth-child(4) { --star-top:54%; --star-left:32%; --star-delay:8s; --star-cycle:19s; }
+.shooting-stars i:nth-child(5) { --star-top:67%; --star-left:58%; --star-delay:4s; --star-cycle:16s; }
+.shooting-stars i:nth-child(6) { --star-top:81%; --star-left:8%; --star-delay:10s; --star-cycle:21s; }
+.shooting-stars i:nth-child(7) { --star-top:94%; --star-left:72%; --star-delay:7s; --star-cycle:18s; }
+@keyframes shooting-star {
+  0% { opacity:0; transform:translate(-100px,-62px) rotate(32deg); }
+  2% { opacity:.7; }
+  8% { opacity:0; transform:translate(240px,150px) rotate(32deg); }
+  100% { opacity:0; transform:translate(240px,150px) rotate(32deg); }
+}
+@media(max-width:700px) {
+  .shooting-stars i { width:95px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .shooting-stars { display:none; }
 }

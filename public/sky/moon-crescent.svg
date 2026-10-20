@@ -1,11 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 112 112">
-<defs>
-<radialGradient id="surface" cx="33%" cy="27%" r="80%"><stop stop-color="#f8f7f3"/><stop offset=".62" stop-color="#cdcdd9"/><stop offset="1" stop-color="#6e718e"/></radialGradient>
-<radialGradient id="crater" cx="65%" cy="65%"><stop stop-color="#6e718e" stop-opacity=".7"/><stop offset=".7" stop-color="#6e718e" stop-opacity=".25"/><stop offset=".85" stop-color="#f8f7f3" stop-opacity=".6"/><stop offset="1" stop-color="#f8f7f3" stop-opacity="0"/></radialGradient>
-<radialGradient id="shadow"><stop stop-color="#252b59"/><stop offset="1" stop-color="#121633"/></radialGradient>
-<mask id="phase"><circle cx="56" cy="56" r="44" fill="white"/><ellipse cx="38" cy="52" rx="42" ry="47" fill="black"/></mask>
-</defs>
-<circle cx="56" cy="56" r="44" fill="url(#shadow)" stroke="#8e94c0" stroke-opacity=".3" stroke-width=".7"/>
-<g mask="url(#phase)"><circle cx="56" cy="56" r="44" fill="url(#surface)"/><circle cx="35" cy="31" r="10" fill="url(#crater)" opacity="0.42"/><circle cx="65" cy="25" r="6" fill="url(#crater)" opacity="0.4"/><circle cx="77" cy="46" r="9" fill="url(#crater)" opacity="0.32"/><circle cx="43" cy="59" r="13" fill="url(#crater)" opacity="0.28"/><circle cx="66" cy="73" r="8" fill="url(#crater)" opacity="0.38"/><circle cx="26" cy="73" r="5" fill="url(#crater)" opacity="0.3"/><circle cx="57" cy="42" r="4" fill="url(#crater)" opacity="0.42"/><circle cx="85" cy="68" r="4" fill="url(#crater)" opacity="0.35"/><circle cx="31" cy="48" r="3" fill="url(#crater)" opacity="0.5"/><circle cx="49" cy="82" r="4" fill="url(#crater)" opacity="0.4"/><circle cx="53" cy="19" r="3" fill="url(#crater)" opacity="0.4"/></g>
-<circle cx="56" cy="56" r="43.8" fill="none" stroke="#f8f7f3" stroke-opacity=".13" stroke-width=".6"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" color="#e3e6f0"><circle cx="32" cy="32" r="23" fill="none" stroke="currentColor" stroke-opacity=".25" stroke-width="1.5"/><path d="M32 9a23 23 0 0 1 0 46c12-12 12-34 0-46Z" fill="currentColor"/></svg>

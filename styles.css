@@ -1505,7 +1505,7 @@ footer { background:var(--black); padding-bottom:35px; }
   filter:brightness(.35);
 }
 
-/* Illustrated lunar phases with surface detail and soft lighting. */
+/* Minimal geometric lunar phases. */
 .moon {
   width:78px;
   height:78px;
@@ -1532,4 +1532,207 @@ footer { background:var(--black); padding-bottom:35px; }
   display:block;
   width:22px;
   height:22px;
+}
+
+/* Process: clear timeline and organized deliverables. */
+.process-reference {
+  background:radial-gradient(ellipse at 25% 55%,#10132a 0%,#08090e 45%,#08090b 80%);
+  padding:95px 0;
+  color:var(--cream);
+}
+.process-frame { width:min(1280px,calc(100% - 112px)); margin:auto; }
+.process-reference .section-heading { margin-bottom:55px; }
+.process-reference .eyebrow { color:var(--yellow); }
+.process-diagram { display:grid; grid-template-columns:1.35fr 1fr; gap:40px; align-items:stretch; }
+.process-milestones { grid-column:1; grid-row:1; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); position:relative; list-style:none; padding:45px 0 0; margin:0; min-height:210px; counter-reset:steps; }
+.process-milestones:before { content:''; position:absolute; top:118px; height:10px; left:0; right:0; border-radius:20px; background:linear-gradient(90deg,#ffde21,#ad9eb8 35%,#605bff 65%,#273bcc); box-shadow:0 0 30px #5260ff15; }
+.milestone { position:relative; counter-increment:steps; padding-right:12px; }
+.milestone:before { content:'0' counter(steps); display:block; color:#a0a3b8; font-size:11px; letter-spacing:2px; margin-bottom:12px; }
+.milestone span { display:block; font-size:clamp(12px,1.1vw,16px); line-height:1.4; font-weight:600; }
+.milestone span br { display:none; }
+.milestone i { position:absolute; top:72px; left:0; width:13px; height:13px; border:3px solid #08090e; border-radius:50%; background:var(--cream); box-shadow:0 0 0 1px #ffffff60; }
+.process-analysis { grid-column:1; grid-row:2; border:1px solid #ffffff18; border-radius:16px; padding:26px 30px; background:#ffffff03; display:flex; align-items:center; min-height:92px; }
+.process-analysis h2 { font-family:var(--body); font-size:clamp(20px,2vw,28px); font-weight:600; letter-spacing:-.6px; line-height:1.2; }
+.process-output { grid-column:2; grid-row:1 / 3; position:relative; overflow:hidden; border:1px solid #6a86ff70; border-radius:20px; padding:35px; background:linear-gradient(145deg,#2450ff,#183bda); box-shadow:0 18px 55px #0003; }
+.process-output:before { content:''; position:absolute; top:0; left:0; right:0; height:5px; background:linear-gradient(90deg,#7e82ff,#ffde21); }
+.process-output h2 { font-family:var(--body); font-size:clamp(23px,2.1vw,30px); font-weight:600; line-height:1.2; letter-spacing:-.6px; margin:0 0 30px; }
+.process-output ul { display:grid; grid-template-columns:1fr 1fr; gap:25px; padding:0; margin:0; list-style:none; }
+.process-output li { position:relative; font-size:15px; line-height:1.45; padding-top:18px; border-top:1px solid #ffffff30; }
+.process-output li:before { content:'↗'; display:block; color:var(--yellow); font-size:20px; margin-bottom:8px; }
+.process-output small { display:block; font-size:10px; line-height:1.5; color:#d0d9ff; margin-top:6px; }
+.process-gradient,.process-divider { display:none; }
+@media(max-width:1000px) {
+  .process-frame { width:calc(100% - 70px); }
+  .process-diagram { grid-template-columns:1fr; gap:25px; }
+  .process-milestones { min-height:180px; }
+  .milestone span { font-size:15px; }
+  .process-analysis { grid-row:2; }
+  .process-output { grid-column:1; grid-row:3; }
+  .process-output ul { grid-template-columns:repeat(4,1fr); }
+}
+@media(max-width:600px) {
+  .process-reference { padding:65px 0; }
+  .process-frame { width:calc(100% - 40px); }
+  .process-reference .section-heading { margin-bottom:35px; }
+  .process-milestones { display:block; padding:0 0 0 35px; min-height:0; }
+  .process-milestones:before { top:8px; bottom:15px; height:auto; left:6px; right:auto; width:5px; background:linear-gradient(#ffde21,#ad9eb8 35%,#605bff 65%,#273bcc); }
+  .milestone { display:grid; grid-template-columns:27px 1fr; align-items:baseline; padding:0 0 28px; }
+  .milestone:last-child { padding-bottom:0; }
+  .milestone:before { margin:0; font-size:10px; }
+  .milestone span { font-size:16px; }
+  .milestone i { top:6px; left:-33px; }
+  .process-analysis { padding:22px; min-height:0; }
+  .process-analysis h2 { font-size:21px; }
+  .process-output { padding:28px 24px; }
+  .process-output h2 { font-size:24px; margin-bottom:25px; }
+  .process-output ul { grid-template-columns:1fr 1fr; gap:22px 18px; }
+  .process-output li { font-size:13px; }
+}
+
+/* Rounded controls and a softer presentation for plans. */
+:root { --radius-control:12px; --radius-card:24px; }
+.button,.nav-cta { border-radius:var(--radius-control); }
+input,select,textarea { border-radius:var(--radius-control); }
+.work-grid img,.person-photo { border-radius:20px; }
+.process-delivery { border-radius:16px; }
+.plans { background:radial-gradient(ellipse at 55% 40%,#1b2056 0%,var(--navy) 68%); }
+.plan-grid { gap:20px; align-items:stretch; }
+.plan-card {
+  position:relative;
+  padding:32px 25px 25px;
+  border:1px solid #ffffff20;
+  border-radius:var(--radius-card);
+  background:linear-gradient(155deg,#ffffff09,#ffffff02);
+  box-shadow:0 12px 35px #00000012;
+  transition:transform .2s,border-color .2s,box-shadow .2s;
+}
+.plan-card:hover { transform:translateY(-5px); border-color:#a9afff66; box-shadow:0 20px 40px #0003; }
+.plan-card.featured {
+  border-color:#6271ff;
+  background:radial-gradient(ellipse at 20% 0%,#5363ff77,transparent 60%),linear-gradient(150deg,#203aff,#1022c8);
+  box-shadow:0 15px 50px #0718f329;
+}
+.plan-card .moon { width:90px; height:90px; margin:0 0 25px; }
+.plan-card .plan-category { font-size:8px; line-height:1.7; letter-spacing:1.1px; min-height:28px; color:#b7bddf; margin-bottom:8px; }
+.plan-card.featured .plan-category { color:#fff3a3; }
+.plan-card h3 { font-size:clamp(30px,2.65vw,39px); margin-bottom:26px; }
+.plan-card ul { margin:0 0 30px; border-top:1px solid #ffffff18; padding-top:17px; }
+.plan-card li { padding:9px 0 9px 19px; font-size:12px; line-height:1.65; color:#ced1e5; }
+.plan-card li:before { content:'✓'; color:#ffde21; font-size:11px; top:10px; }
+.plan-card.featured li { color:#f1f2ff; }
+.plan-card .button { border-radius:12px; min-height:51px; padding:14px 16px; margin-top:auto; background:#ffffff04; border-color:#ffffff30; }
+.plan-card .button:hover { background:#ffffff12; color:var(--cream); }
+.plan-card .button-yellow { background:var(--yellow); border-color:var(--yellow); color:var(--navy); }
+.plan-card .button-yellow:hover { background:#ffe965; color:var(--navy); }
+@media(max-width:1000px) { .plan-card h3 { font-size:38px; } }
+@media(max-width:700px) {
+  .plan-grid { gap:18px; }
+  .plan-card { padding:28px 25px 25px; }
+  .plan-card .moon { width:78px; height:78px; margin-bottom:18px; }
+  .plan-card .plan-category { min-height:0; }
+  .plan-card h3 { font-size:38px; margin-bottom:23px; }
+  .plan-card li { font-size:13px; }
+  .plan-card ul { margin-bottom:25px; }
+}
+
+.header-logo {
+  display:block;
+  flex-shrink:0;
+  width:180px;
+  mix-blend-mode:normal;
+}
+.header-logo img {
+  display:block;
+  width:100%;
+  height:auto;
+}
+@media(max-width:700px) { .header-logo { width:145px; } }
+
+.hero-editorial .hero-statement {
+  max-width:510px;
+  font-size:18px;
+  line-height:1.7;
+  text-wrap:pretty;
+}
+@media(max-width:700px) {
+  .hero-editorial .hero-statement {
+    max-width:360px;
+    font-size:16px;
+    line-height:1.65;
+  }
+}
+
+.hero-editorial .hero-scroll {
+  position:absolute;
+  left:50%;
+  right:auto;
+  bottom:48px;
+  transform:translateX(-50%);
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  z-index:3;
+  line-height:0;
+}
+.hero-scroll svg { display:block; width:26px; height:26px; }
+@media(max-width:700px) { .hero-editorial .hero-scroll { bottom:40px; } }
+
+.hero-background img.hero-studio { filter:brightness(.32); }
+
+/* A continuous night sky behind every section. */
+body {
+  background-color:#020309;
+  background-image:
+    radial-gradient(1px 1px at 23px 37px,#ffffff50 70%,transparent),
+    radial-gradient(1px 1px at 173px 113px,#c7d5ff40 70%,transparent),
+    radial-gradient(1.5px 1.5px at 291px 219px,#e4eaff50 60%,transparent),
+    radial-gradient(1px 1px at 81px 307px,#ffffff35 70%,transparent),
+    radial-gradient(.7px .7px at 347px 73px,#ffffff45 70%,transparent),
+    radial-gradient(.8px .8px at 137px 191px,#b4c4ff40 70%,transparent),
+    radial-gradient(1px 1px at 419px 353px,#ffffff38 70%,transparent),
+    radial-gradient(ellipse at 75% 25%,#18213b25,transparent 65%);
+  background-size:457px 401px,523px 479px,607px 541px,397px 563px,641px 433px,349px 317px,719px 617px,100% 1400px;
+}
+
+.about,.services,.process-reference,.plans,.work,.team,.contact,footer {
+  background:transparent;
+}
+
+/* Fade the hero's photographic sky into the page's star field. */
+.hero-background {
+  -webkit-mask-image:linear-gradient(#000 80%,transparent);
+  mask-image:linear-gradient(#000 80%,transparent);
+}
+.hero-editorial { background:transparent; }
+/* Liquid glass stays translucent both at the top and while scrolling. */
+.site-header,.site-header.scrolled {
+  background:linear-gradient(115deg,#ffffff12,#ffffff04 45%,#b8ccff0c),#02030966;
+  -webkit-backdrop-filter:blur(24px) saturate(160%);
+  backdrop-filter:blur(24px) saturate(160%);
+  border-bottom:1px solid #ffffff1f;
+  box-shadow:inset 0 1px 0 #ffffff26,0 8px 32px #00000024;
+}
+.site-header .nav-cta {
+  background:linear-gradient(135deg,#ffffff15,#ffffff05);
+  border-color:#ffffff35;
+  box-shadow:inset 0 1px 0 #ffffff18;
+}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))) {
+  .site-header,.site-header.scrolled { background:#090d1cf2; }
+}
+@media(max-width:1000px) {
+  .site-header .nav-links {
+    background:linear-gradient(135deg,#171c2af5,#080c18fa);
+    border-bottom:1px solid #ffffff26;
+    box-shadow:0 16px 32px #0005;
+  }
+}
+
+/* Compact, flat lunar symbols match the typography and glass surfaces. */
+.plan-card .moon {
+  width:64px;
+  height:64px;
+  margin-bottom:24px;
+  filter:none;
 }
